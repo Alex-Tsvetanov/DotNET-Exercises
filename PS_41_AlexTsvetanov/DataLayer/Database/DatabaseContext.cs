@@ -1,6 +1,5 @@
 ﻿using DataLayer.Model;
 using Microsoft.EntityFrameworkCore;
-using Welcome.Model;
 using Welcome.Others;
 
 namespace DataLayer.Database
@@ -8,6 +7,7 @@ namespace DataLayer.Database
     class DatabaseContext : DbContext
     {
         public DbSet<DatabaseUser> Users { get; set; }
+        public DbSet<DBLogger.LogMessage> Logs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string databasePath = @"C:\Users\alext\source\repos\DotNET Exercises\PS_41_AlexTsvetanov\DataLayer\bin\Debug\net8.0\Welcome.db";
@@ -16,6 +16,7 @@ namespace DataLayer.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DatabaseUser>().Property(e => e.Uid).ValueGeneratedOnAdd();
+            modelBuilder.Entity<DBLogger.LogMessage>().Property(e => e.Id).ValueGeneratedOnAdd();
 
             // Create a user
             var admin = new DatabaseUser()

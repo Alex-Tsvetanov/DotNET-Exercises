@@ -4,10 +4,10 @@ namespace Welcome.Model
 {
     public class User
     {
-        public required string Name { get; set; }
+        public string Name { get; set; }
         // 3. Да се добави прост начин за криптиране/декриптиране на паролата в getter/setter на Password
         private string _password;
-        public required string Password
+        public string Password
         {
             get
             {
@@ -18,7 +18,7 @@ namespace Welcome.Model
                 _password = value.Substring(1, value.Length - 1) + value.Substring(0, 1);
             }
         }
-        public required UserRolesEnum Role { get; set; }
+        public UserRolesEnum Role { get; set; }
 
         // 1. Да се добавят още данни за потребителите (пример: Факултетен номер, имейл) 
         public string Email { get; set; }
