@@ -22,7 +22,7 @@ namespace WelcomeExtended.Loggers
 
         public void Dispose()
         {
-            _output.Close();
+            throw new NotImplementedException();
         }
     }
 }

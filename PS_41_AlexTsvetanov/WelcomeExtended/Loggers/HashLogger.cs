@@ -64,6 +64,13 @@ namespace WelcomeExtended.Loggers
             _output = output;
         }
 
+        ~HashLogger()
+        {
+            _output.Flush();
+            _output.Close();
+            _output.Dispose();
+        }
+
         public IDisposable? BeginScope<TState>(TState state) where TState : notnull
         {
             return null;

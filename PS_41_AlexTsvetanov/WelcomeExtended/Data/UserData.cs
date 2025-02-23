@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,16 @@ namespace WelcomeExtended.Data
     {
         private readonly List<User> _users;
         private int _nextId;
-        public UserData()
+        private ILogger _logger;
+        public ILogger Logger
+        {
+            get => _logger;
+        }
+        public UserData(ILogger logger)
         {
             _nextId = 0;
             _users = [];
+            _logger = logger;
         }
         public void AddUser(User user)
         {

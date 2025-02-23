@@ -46,7 +46,7 @@ namespace WelcomeExtended
             // Exercise 3
             try
             {
-                UserData userData = new();
+                UserData userData = new(Delegates.fileLogger);
                 User studentUser = new (){ Name = "student", Password = "123", Role = UserRolesEnum.STUDENT };
                 User student2User = new (){ Name = "Student2", Password = "123", Role = UserRolesEnum.STUDENT };
                 User teacherUser = new (){ Name = "Teacher", Password = "1234", Role = UserRolesEnum.PROFESSOR };
@@ -58,15 +58,12 @@ namespace WelcomeExtended
 
                 Console.WriteLine("Please, enter username and password.");
                 var input = (Console.ReadLine() ?? throw new NullReferenceException()).Split(" ").ToList();
-                if (userData.ValidateCredentials(input[0], input[1]))
-                {
-                    User enteredUser = userData.GetUser(input[0], input[1]) ?? throw new NullReferenceException();
-                    Console.WriteLine(enteredUser.ToString2());
-                }
-                else
+                User enteredUser = userData.ValidateAndGetUser(input[0], input[1]) ?? throw new NullReferenceException();
+                if (enteredUser == null)
                 {
                     throw new ArgumentException("User not found.");
                 }
+                Console.WriteLine(enteredUser.ToString2());
             }
             catch (Exception e)
             {

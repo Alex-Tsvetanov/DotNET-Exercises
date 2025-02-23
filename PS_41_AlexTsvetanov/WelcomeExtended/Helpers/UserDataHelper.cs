@@ -1,5 +1,6 @@
 ﻿using WelcomeExtended.Data;
 using Welcome.Model;
+using Microsoft.Extensions.Logging;
 
 namespace WelcomeExtended.Helpers
 {
@@ -17,12 +18,14 @@ namespace WelcomeExtended.Helpers
             }
             return userData.ValidateUser(name, password);
         }
-        public static User GetUser(this UserData userData, string name, string password)
+        public static User ValidateAndGetUser(this UserData userData, string name, string password)
         {
             if (!userData.ValidateCredentials(name, password))
             {
+                userData.Logger.LogError($"User {name} failed to log in at {DateTime.Now.ToString()}");
                 throw new ArgumentOutOfRangeException("User credentials not found.");
             }
+            userData.Logger.LogInformation($"User {name} logged successfully at {DateTime.Now.ToString()}");
             return userData.GetUser(name, password);
         }
     }
