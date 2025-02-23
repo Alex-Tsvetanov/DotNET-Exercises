@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataLayer.Model
 {
-    class DBLogger : ILogger
+    public class DBLogger : ILogger
     {
         public class LogMessage
         {

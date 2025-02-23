@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataLayer.Model
 {
-    class DatabaseUser : Welcome.Model.User
+    public class DatabaseUser : Welcome.Model.User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

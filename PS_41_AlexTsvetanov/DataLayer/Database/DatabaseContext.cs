@@ -4,7 +4,7 @@ using Welcome.Others;
 
 namespace DataLayer.Database
 {
-    class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext
     {
         public DbSet<DatabaseUser> Users { get; set; }
         public DbSet<DBLogger.LogMessage> Logs { get; set; }
