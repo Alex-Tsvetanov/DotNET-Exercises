@@ -1,5 +1,6 @@
 ﻿using DataLayer.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Welcome.Others;
 
 namespace DataLayer.Database
@@ -7,16 +8,16 @@ namespace DataLayer.Database
     public class DatabaseContext : DbContext
     {
         public DbSet<DatabaseUser> Users { get; set; }
-        public DbSet<DBLogger.LogMessage> Logs { get; set; }
+        public DbSet<DatabaseLogs> Logs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string databasePath = @"C:\Users\alext\source\repos\DotNET Exercises\PS_41_AlexTsvetanov\DataLayer\bin\Debug\net8.0\Welcome.db";
+            string databasePath = @"C:\Users\alext\source\repos\DotNET Exercises\PS_41_AlexTsvetanov\UI\bin\Debug\net8.0-windows\database.db";
             optionsBuilder.UseSqlite($"Data Source={databasePath}");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DatabaseUser>().Property(e => e.Uid).ValueGeneratedOnAdd();
-            modelBuilder.Entity<DBLogger.LogMessage>().Property(e => e.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<DatabaseLogs>().Property(e => e.Id).ValueGeneratedOnAdd();
 
             // Create a user
             var admin = new DatabaseUser()
@@ -56,6 +57,14 @@ namespace DataLayer.Database
             modelBuilder.Entity<DatabaseUser>().HasData(admin);
             modelBuilder.Entity<DatabaseUser>().HasData(student);
             modelBuilder.Entity<DatabaseUser>().HasData(professor);
+
+            var log = new DatabaseLogs()
+            {
+                Id = 3,
+                Text = "Test alert",
+                Level = LogLevel.Information
+            };
+            modelBuilder.Entity<DatabaseLogs>().HasData(log);
         }
     }
 }
