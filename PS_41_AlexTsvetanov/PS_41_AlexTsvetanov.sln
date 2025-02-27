@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{639C
 		{0D7BF5DE-B28D-4B49-9C63-8F175068FDF2} = {0D7BF5DE-B28D-4B49-9C63-8F175068FDF2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExample", "WpfExample\WpfExample.csproj", "{28FE0579-5D29-42C1-B126-55F6314E539E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyMVVM", "EasyMVVM\EasyMVVM.csproj", "{AEF255F3-B7DA-4343-8500-C7B9985956E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{639CF686-7604-4C15-9D55-627A4CEE1791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{639CF686-7604-4C15-9D55-627A4CEE1791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{639CF686-7604-4C15-9D55-627A4CEE1791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28FE0579-5D29-42C1-B126-55F6314E539E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28FE0579-5D29-42C1-B126-55F6314E539E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28FE0579-5D29-42C1-B126-55F6314E539E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28FE0579-5D29-42C1-B126-55F6314E539E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF255F3-B7DA-4343-8500-C7B9985956E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF255F3-B7DA-4343-8500-C7B9985956E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF255F3-B7DA-4343-8500-C7B9985956E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF255F3-B7DA-4343-8500-C7B9985956E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
